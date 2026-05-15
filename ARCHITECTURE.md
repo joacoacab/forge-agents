@@ -24,6 +24,9 @@ Heartbeat/status messages periodically report that a node is alive and include u
 
 Sensor drivers should be reusable and isolated from project-specific logic.
 
+Project-specific firmware should stay small: configure the node, initialize the
+agent and sensors, then publish readings through the shared MQTT contract.
+
 ## Device Types
 
 Sensor nodes publish environmental data such as temperature, humidity, light, and soil moisture.
@@ -40,13 +43,22 @@ The initial ESP32 node includes:
 - MQTT connection handling
 - retained online status publishing
 - periodic heartbeat/status publishing
-- example temperature telemetry
+- DHT22 temperature and humidity telemetry
 - command topic subscription
 - command receipt event publishing
 
+## Sensor Drivers
+
+Drivers live under `lib/ForgeSensors/` and expose small reading structs. The
+first supported driver is `DhtSensor`, which publishes:
+
+- `temperature` in `celsius`
+- `humidity` in `percent`
+
+Future sensors should follow the same pattern without changing `ForgeAgent`.
+
 ## Planned Drivers
 
-- DHT22
 - BME280
 - BH1750
 - soil moisture sensor

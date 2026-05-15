@@ -4,16 +4,20 @@
 // Copy to include/ForgeConfig.h and adjust for your device.
 
 #define FORGE_PROJECT "germinator"
-#define FORGE_NODE_ID "esp32-01"
+#define FORGE_NODE_ID "esp32-001"
 #define FORGE_FIRMWARE_VERSION "0.1.0"
 
 #define WIFI_SSID "your-wifi-ssid"
 #define WIFI_PASSWORD "your-wifi-password"
 
-#define MQTT_HOST "192.168.1.10"
+#define MQTT_HOST "192.168.0.32"
 #define MQTT_PORT 1883
 #define MQTT_USER ""
 #define MQTT_PASSWORD ""
 
 #define HEARTBEAT_INTERVAL_MS 30000UL
 #define TELEMETRY_INTERVAL_MS 10000UL
+
+// DHT data pin and sensor type. Use 11 for DHT11 or 22 for DHT22/AM2302.
+#define DHT_PIN 23
+#define DHT_SENSOR_TYPE 11

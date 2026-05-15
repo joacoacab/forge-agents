@@ -21,6 +21,7 @@ edgeforge/{project}/{node}/{channel}
 ```txt
 edgeforge/germinator/esp32-01/telemetry
 edgeforge/germinator/esp32-01/status
+edgeforge/germinator/esp32-001/telemetry
 edgeforge/germinator/esp32-cam-01/images
 edgeforge/irrigation/patio-01/commands
 edgeforge/galpon/zone-a/events
@@ -31,11 +32,25 @@ edgeforge/galpon/zone-a/events
 ```json
 {
   "project": "germinator",
-  "node": "esp32-01",
+  "node": "esp32-001",
   "metric": "temperature",
   "value": 24.6,
   "unit": "celsius",
-  "timestamp": "2026-05-12T18:00:00Z",
+  "timestamp": "uptime:120",
+  "status": "ok"
+}
+```
+
+Humidity uses the same payload shape:
+
+```json
+{
+  "project": "germinator",
+  "node": "esp32-001",
+  "metric": "humidity",
+  "value": 61.2,
+  "unit": "percent",
+  "timestamp": "uptime:120",
   "status": "ok"
 }
 ```
